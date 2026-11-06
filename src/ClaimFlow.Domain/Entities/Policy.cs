@@ -33,7 +33,7 @@ public class Policy
 
     if (endDate <= startDate)
     {
-        throw new ArgumentException("StartDate must be earlier than EndDate.");
+        throw new ArgumentException("StartDate must be earlier than EndDate.", nameof(endDate));
     }
 
     Id = Guid.NewGuid();
@@ -46,7 +46,33 @@ public class Policy
     Status = PolicyStatus.Draft;
 }
 
+public void Activate()
+    {
+        if (Status == PolicyStatus.Draft)
+        {
+            Status = PolicyStatus.Active;
+                
+        }
+        else throw new InvalidOperationException(
+                "Only draft policies can be activated"
+                );
+        
+    }
+
+public void Cancel()
+    {
+        if (Status == PolicyStatus.Active)
+        {
+            Status = PolicyStatus.Cancelled;
+        }
+        else throw new InvalidOperationException(
+            "Only active policies can be cancelled"
+            );
+    }
+
 }
+
+
 
 
 

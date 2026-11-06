@@ -1,7 +1,7 @@
 public enum PolicyStatus
 {
     Draft,
-    Activate,
+    Active,
     Cancelled,
     Expired
 }

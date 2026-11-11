@@ -1,4 +1,6 @@
+using ClaimFlow.Application.Interfaces;
 using ClaimFlow.Infrastructure.Persistence;
+using ClaimFlow.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +18,10 @@ public static class DependencyInjection
                 "Connection string 'ClaimFlow' is required. Set ConnectionStrings__ClaimFlow.");
 
         services.AddDbContext<ClaimFlowDbContext>(options => options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 36))));
+        
+        services.AddScoped<IPolicyRepository, PolicyRepository>();
+        
         return services;
+
     }
 }

@@ -1,3 +1,5 @@
+namespace ClaimFlow.Domain.Entities;
+
 public class Policy
 {
     public Guid Id { get; private set; }

@@ -15,7 +15,7 @@ public static class DependencyInjection
             ?? throw new InvalidOperationException(
                 "Connection string 'ClaimFlow' is required. Set ConnectionStrings__ClaimFlow.");
 
-        services.AddDbContext<ClaimFlowDbContext>(options => options.UseNpgsql(connectionString));
+        services.AddDbContext<ClaimFlowDbContext>(options => options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 36))));
         return services;
     }
 }

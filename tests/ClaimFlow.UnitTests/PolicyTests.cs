@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Security.Authentication.ExtendedProtection;
+using ClaimFlow.Domain.Entities;
 
 namespace ClaimFlow.UnitTests;
 
